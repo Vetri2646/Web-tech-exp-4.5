@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function val()
+        {
+            var n = document.formval.name.value;
+            if(n=="")
+            {
+                alert("please, Enter your name!!!");
+                document.formval.name.focus();
+                return false;
+            }
+            if(!isNaN(n))
+            {
+                alert("please Enter  alphabets");
+                document.formval.name.select();
+                return false;
+            }
+            var m = document.formval.mail.value;
+            if(m == "")
+            {
+                alert("please, Enter your mail id!!!");
+                document.formval.mail.focus();
+                return false;
+            }
+            if(!isNaN(m))
+            {
+                alert("please don't enter numeric values");
+                document.formval.name.select();
+                return false;
+            }
+            var atposition = m.indexOf("@");
+            var dotposition = m.lastIndexOf(".");
+            if(atposition<1 || dotposition<atposition+2 || dotposition+2>=m.length)
+                {
+                    alert("please enter valid mail address!!!!");
+                return false;                }
+
+                var p = document.getElementById("pw").value;
+                console.log(p);
+            if(p == "")
+            {
+                alert("please, Enter your password!!!");
+                document.formval.pass.focus();
+                return false;
+            }
+            var cp = document.getElementById("cpw").value;
+            if(cp == "")
+            {
+                alert("please, Enter your password!!!");
+                document.formval.cpass.focus();
+                return false;
+            }
+            if(p !== cp)
+            {
+                alert("Password not matched please enter correct one!!!!");
+                document.formval.cpass.focus();
+                console.log(p);
+                console.log(cp);
+                return false;
+            }
+            var rb = document.formval.gender;
+            var status =0;
+            for(var i=0;i<rb.length;i++)
+            {
+                if(rb[i].checked==true){
+                    status=1;
+                }
+            }
+            if(status==0)
+            {
+                alert("select gender");
+                return false;
+            }
+
+            var interest = document.formval.course;
+            if(interest.selectedIndex==0)
+            {
+                alert("select your course");
+                document.formval.course.focus();
+                return false;
+            }
+            var interest = document.formval.course;
+            if(interest.selectedIndex==0)
+            {
+                alert("select your course");
+                document.formval.course.focus();
+                return false;
+            }
+
+           
+            return true;
+        }
+    </script>
+    <title>Form Validate</title>
+</head>
+<style>
+    body{
+        background-color: rgb(208, 217, 228);
+    }
+    h1{
+        text-align: center;
+    }
+    body{
+        text-align: center;
+        display:-moz-stack;
+    }
+    form{
+        box-shadow:0 3px 4px rgba(108, 17, 244, 0.7);
+       
+    }
+</style>
+<body>
+    <h1>
+       <b> Forms </b>
+    </h1><br><br>
+        <form action="action.html" name="formval"  onsubmit="return val()">
+    
+                <label for="Username">Username:</label>
+                <input type="text" id="name" name="name">
+ <br><br>
+                <label for="Mailid">Mail-ID:</label>
+                <input type="text" id="mail" name="mail">
+            <br> <br>
+            
+                <label for="password">Password:</label>
+                <input type="password" id="pw" name="pass">
+            <br> <br>
+           
+                <label for="cpassword">Confirm Password:</label>
+                <input type="password" id="cpw" name="cpass">
+            <br> <br>
+            <label for="gender">Gender:</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="male">Male</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="female">Female</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="others">Others</label> <br>
+        <br> <br>
+        <div class="item">
+                <label for="course">Select course:</label> <br>
+                <select type="text" name="course" id="course"> 
+                    <option></option>
+                    <option value="Remote Sensing ">Remote Sensing</option>
+                    <option value="PLC">PLC</option>
+                    <option value="Automative Engneering">Automative Engneering</option>
+                </select>
+            <br> <br>
+            
+                <input type="submit" id="sub" name="sub">
+           <br>
+        </form>
+    
+    </div>
+</body>
+</html>
